@@ -13,6 +13,6 @@ namespace TriangulationAPI.Services
         Task CalculatePosition(Device device);
         Task<IEnumerable<Device>> GetAllDevices();
         Task<Device> UpdateDevice(DeviceDTO device, Device existingDevice);
-        Task<Device> GetDeviceByMAC(string id);
+        Task<Device> GetDeviceByMAC(string mac);
     }
 }

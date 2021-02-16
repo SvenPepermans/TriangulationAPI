@@ -48,8 +48,14 @@ namespace TriangulationAPI.Services
 
         public async Task<Device> UpdateDevice(DeviceDTO device, Device existingDevice)
         {
-            existingDevice.DistanceA = device.DistanceA;
-            existingDevice.DistanceB = device.DistanceB;
+            if (device.DistanceA != 0)
+            {
+                existingDevice.DistanceA = device.DistanceA;            
+            }
+            if (device.DistanceB != 0)
+            {
+                existingDevice.DistanceB = device.DistanceB;
+            }
             context.Devices.Update(existingDevice);
             await context.SaveChangesAsync();
             return existingDevice;
