@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TriangulationAPI.Data;
+using TriangulationAPI.Services;
 
 namespace TriangulationAPI
 {
@@ -100,10 +101,14 @@ namespace TriangulationAPI
                 });
                 services.AddCors(options =>
                      options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()));
+
+            services.AddScoped<DataInitializer>();
+            services.AddScoped<IDeviceServices, DeviceServices>();
+           
             }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataInitializer dataInitializer)
         {
             if (env.IsDevelopment())
             {
