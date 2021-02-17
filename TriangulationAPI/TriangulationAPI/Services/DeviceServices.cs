@@ -64,11 +64,36 @@ namespace TriangulationAPI.Services
 
             var cx0 = AP1.Latitude;
             var cy0 = AP1.Longitude;
-            var radius0 = device.DistanceA * 0.0001;
+            double radius0 = device.DistanceA / 100000;
+            /*if (device.DistanceA >= 1 && device.DistanceA < 10)
+            {
+                 radius0 = device.DistanceA * 0.00001;
+            }else if(device.DistanceA >= 10 && device.DistanceA < 100)
+            {
+                 radius0 = device.DistanceA * 0.0001;
+            }
+            else
+            {
+                 radius0 = device.DistanceA * 0.001;
+            }*/
 
+           
             var cx1 = AP2.Latitude;
             var cy1 = AP2.Longitude;
-            var radius1 = device.DistanceB * 0.0001;
+            double radius1 = device.DistanceB / 100000;
+            /*if (device.DistanceB >= 1 && device.DistanceB < 10)
+            {
+                 radius1 = device.DistanceB * 0.00001;
+            }
+            else if (device.DistanceB >= 10 && device.DistanceB < 100)
+            {
+                 radius1 = device.DistanceB * 0.0001;
+            }
+            else
+            {
+                 radius1 = device.DistanceB * 0.001;
+            }*/
+            
 
             var dx = cx0 - cx1;
             var dy = cy0 - cy1;

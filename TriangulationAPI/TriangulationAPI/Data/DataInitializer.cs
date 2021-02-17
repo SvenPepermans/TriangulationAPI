@@ -43,8 +43,8 @@ namespace TriangulationAPI.Data
                 var device1 = new Device()
                 {
                     MACAdress = "AAA-111",
-                    DistanceA = 10,
-                    DistanceB = 10
+                    DistanceA = 30,
+                    DistanceB = 5
                 };
 
                 await context.Devices.AddAsync(device1);
