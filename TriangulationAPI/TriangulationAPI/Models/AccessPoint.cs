@@ -12,5 +12,7 @@ namespace TriangulationAPI.Models
         public double Longitude { get; set; }
 
         public AccessPoint() { }
+
+
     }
 }

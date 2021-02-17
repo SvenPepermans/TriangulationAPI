@@ -45,9 +45,15 @@ namespace TriangulationAPI.Controllers
         /// </summary>
         /// <returns>List of devices</returns>
         [HttpGet]
-        public Task<IEnumerable<Device>> GetDevices()
+        public async Task<IEnumerable<Device>> GetDevices()
         {           
-            return deviceServices.GetAllDevices();
+            var devices = await deviceServices.GetAllDevices();
+            foreach(var dev in devices)
+            {
+                await deviceServices.CalculatePosition(dev);
+            }
+
+            return devices;
         }
 
         /// <summary>
