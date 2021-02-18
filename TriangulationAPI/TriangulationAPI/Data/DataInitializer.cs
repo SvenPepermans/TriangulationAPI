@@ -25,28 +25,43 @@ namespace TriangulationAPI.Data
             Console.WriteLine("Creating db...");
             if(await context.Database.EnsureCreatedAsync())
             {
-                var AP1 = new AccessPoint()
+                var molenstraat = new AccessPoint()
                 {
-                    Latitude = 50.815782,                   
-                    Longitude = 3.920818
+                    Latitude = 50.938508,                                      
+                    Longitude = 4.039638
                 };
 
-                var AP2 = new AccessPoint()
+                var dirkMartens = new AccessPoint()
                 {
-                    Latitude = 50.815602,                   
-                    Longitude = 3.921102
+                    Latitude = 50.938404,                                                                 
+                    Longitude = 4.038678                   
                 };
-                await context.AccessPoints.AddAsync(AP1);
-                await context.AccessPoints.AddAsync(AP2);
+                var kerkstraat = new AccessPoint()
+                {
+                    Latitude = 50.938167,
+                    Longitude = 4.039691
+                };
+                await context.AccessPoints.AddAsync(molenstraat);
+                await context.AccessPoints.AddAsync(dirkMartens);
+                await context.AccessPoints.AddAsync(kerkstraat);
+
                 await context.SaveChangesAsync();
 
                 var device1 = new Device()
                 {
                     MACAdress = "AAA-111",
-                    DistanceA = 30,
-                    DistanceB = 5
+                    DistanceA = 55,
+                    DistanceB = 55
                 };
 
+                var device2 = new Device()
+                {
+                    MACAdress = "DEV-666",
+                    DistanceA = 50,
+                    DistanceB = 60
+                };
+
+                await context.Devices.AddAsync(device2);
                 await context.Devices.AddAsync(device1);
                 await context.SaveChangesAsync();
 

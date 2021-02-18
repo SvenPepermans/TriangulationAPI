@@ -59,8 +59,8 @@ namespace TriangulationAPI.Services
 
         public async Task CalculatePosition(Device device)
         {
-            var AP1 = await context.AccessPoints.OrderBy(d => d.Id).FirstOrDefaultAsync();
-            var AP2 = await context.AccessPoints.OrderBy(d => d.Id).LastOrDefaultAsync();
+            var AP1 = await context.AccessPoints.Where(d => d.Id == 2).SingleOrDefaultAsync();
+            var AP2 = await context.AccessPoints.Where(d => d.Id == 3 ).SingleOrDefaultAsync();
 
             var cx0 = AP1.Latitude;
             var cy0 = AP1.Longitude;
